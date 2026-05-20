@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications | Kathryn Bockino</title>
+  <meta name="description" content="Published essays, fiction, and articles by Kathryn Bockino — English lecturer at BMCC and NYU MFA graduate. Published in Barely South Review, Sierra Nevada Review, Rappahannock Review, Gandy Dancer, and more."/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c4674a'/><text y='72' x='50' text-anchor='middle' font-family='Georgia,serif' font-size='48' font-weight='bold' fill='white'>KB</text></svg>"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #fdf6ee;
+      --warm-white: #fffaf4;
+      --terracotta: #c4674a;
+      --brown: #5c3d2e;
+      --sage: #7a9e87;
+      --gold: #d4a853;
+      --text-soft: #7a6457;
+      --fiction-color: #7a9e87;
+      --article-color: #d4a853;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    .cursor-dot, .cursor-ring { display: none; }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-bar {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      z-index: 1000; width: 0%; transition: width 0.1s;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 250;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(253,246,238,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,168,83,0.15);
+      box-shadow: 0 2px 20px rgba(92,61,46,0.05);
+    }
+
+    .nav-logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--brown) 0%, var(--gold) 45%, var(--terracotta) 70%, var(--brown) 100%);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer-name 4s ease-in-out infinite;
+      letter-spacing: 0.03em;
+      word-spacing: 0.08em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @keyframes shimmer-name {
+      0% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+
+    .nav-back {
+      display: flex; align-items: center; gap: 0.5rem;
+      text-decoration: none; color: var(--text-soft);
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--terracotta); }
+    .nav-back span { font-size: 1rem; }
+
+    /* ── HERO ── */
+    .pub-hero {
+      padding: 10rem 4rem 5rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .pub-eyebrow {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+
+    .pub-eyebrow-line {
+      width: 40px; height: 1.5px;
+      background: var(--terracotta);
+    }
+
+    .pub-eyebrow-text {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .pub-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+
+    .pub-hero h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .pub-hero-desc {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: var(--text-soft);
+      line-height: 1.75;
+      max-width: 560px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.6s forwards;
+    }
+
+    .pub-stats {
+      display: flex; gap: 3rem; margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(196,103,74,0.15);
+      opacity: 0; animation: fadeUp 0.7s ease 0.8s forwards;
+    }
+
+    .pub-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 700;
+      color: var(--terracotta); line-height: 1;
+      display: block;
+    }
+
+    .pub-stat-label {
+      font-size: 0.75rem; color: var(--text-soft);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-top: 0.3rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── FILTER TABS ── */
+    .filter-bar {
+      max-width: 760px; margin: 0 auto;
+      padding: 0 4rem 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-soft); margin-right: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.3rem;
+      border-radius: 50px;
+      border: 1.5px solid rgba(196,103,74,0.25);
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem; font-weight: 500;
+      color: var(--brown); cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--terracotta);
+      color: white; border-color: var(--terracotta);
+    }
+
+    .filter-btn.fiction.active { background: var(--sage); border-color: var(--sage); }
+    .filter-btn.article.active { background: var(--gold); border-color: var(--gold); color: var(--brown); }
+
+    /* ── PUBLICATIONS GRID ── */
+    .pub-grid {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 4rem 6rem;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.2rem;
+    }
+
+    /* Featured card - spans 8 columns */
+    .pub-card {
+      background: var(--warm-white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid rgba(196,103,74,0.15);
+      box-shadow: 0 4px 20px rgba(92,61,46,0.06);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      cursor: default;
+      display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+      position: relative;
+    }
+
+    .pub-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(92,61,46,0.12);
+      border-color: rgba(196,103,74,0.4);
+    }
+
+    .pub-card.featured { grid-column: span 8; }
+    .pub-card.regular { grid-column: span 4; }
+    .pub-card.half { grid-column: span 6; }
+
+    /* Genre accent top border */
+    .pub-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .pub-card.fiction::before { background: linear-gradient(90deg, var(--sage), #a8c5b0); }
+    .pub-card.article::before { background: linear-gradient(90deg, var(--gold), #e8c77a); }
+
+    .pub-card-body {
+      padding: 2rem 2rem 1.5rem;
+      flex: 1; display: flex; flex-direction: column;
+    }
+
+    .pub-card.featured .pub-card-body { padding: 2.5rem; }
+
+    .pub-genre-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.25rem 0.8rem;
+      border-radius: 50px; margin-bottom: 1.2rem;
+      width: fit-content;
+    }
+
+    .pub-genre-tag.fiction { background: rgba(122,158,135,0.12); color: var(--sage); }
+    .pub-genre-tag.article { background: rgba(212,168,83,0.15); color: #9a7010; }
+
+    .pub-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--brown);
+      line-height: 1.35;
+      margin-bottom: 0.8rem;
+      flex: 1;
+    }
+
+    .pub-card.featured .pub-title { font-size: 1.6rem; }
+    .pub-card.regular .pub-title { font-size: 1.05rem; }
+    .pub-card.half .pub-title { font-size: 1.2rem; }
+
+    .pub-excerpt {
+      font-family: 'Lora', serif;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    .pub-card-footer {
+      padding: 1rem 2rem 1.2rem;
+      background: rgba(92,61,46,0.03);
+      border-top: 1px solid rgba(196,103,74,0.08);
+      display: flex; align-items: center;
+      justify-content: space-between;
+    }
+
+    .pub-card.featured .pub-card-footer { padding: 1.2rem 2.5rem; }
+
+    .pub-journal {
+      font-family: 'Lora', serif;
+      font-size: 0.82rem; font-style: italic;
+      color: var(--terracotta); font-weight: 500;
+    }
+
+    .pub-read-link {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--text-soft);
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .pub-card:hover .pub-read-link {
+      color: var(--terracotta); gap: 0.7rem;
+    }
+
+    /* ── HIDDEN ITEMS ── */
+    .pub-card.hidden { display: none; }
+
+    /* ── RESPONSIVE ── */
+    /* ── TABLET 768px–1024px ── */
+    @media (max-width: 1024px) {
+      .pub-grid { grid-template-columns: 1fr 1fr; padding: 0 2.5rem 4rem; }
+      .pub-card.featured, .pub-card.regular, .pub-card.half { grid-column: span 1; }
+      .pub-card.featured { grid-column: span 2; }
+      .pub-hero, .filter-bar { padding-left: 2.5rem; padding-right: 2.5rem; }
+      .pub-hero h1 { font-size: 3.5rem; }
+    }
+
+    /* ── MOBILE max 768px ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-logo { font-size: 1.5rem; }
+      .pub-hero { padding: 7rem 1.5rem 2.5rem; }
+      .pub-hero h1 { font-size: 2.4rem; }
+      .pub-hero-desc { font-size: 0.95rem; }
+      .pub-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .filter-bar { padding: 0 1.5rem 2rem; gap: 0.5rem; }
+      .pub-grid { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; gap: 1rem; }
+      .pub-card.featured, .pub-card.regular, .pub-card.half { grid-column: span 1; }
+    }
+
+    /* ── SMALL PHONES max 400px ── */
+    @media (max-width: 400px) {
+      .pub-hero h1 { font-size: 2rem; }
+      .nav-logo { font-size: 1.3rem; }
+      .filter-bar { gap: 0.4rem; }
+      .filter-btn { padding: 0.4rem 0.9rem; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-bar" id="scrollBar"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Kathryn Bockino</a>
+    <a href="index.html" class="nav-back"><span>←</span> Back</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="pub-hero">
+    <div class="pub-eyebrow">
+      <div class="pub-eyebrow-line"></div>
+      <span class="pub-eyebrow-text">Published Work</span>
+    </div>
+    <h1>Words that <em>stay</em><br/>with you.</h1>
+    <p class="pub-hero-desc">
+      A collection of published fiction and articles spanning literary journals, 
+      reviews, and publications across the country. Each piece written with honesty, 
+      precision, and a deep belief that your voice matters.
+    </p>
+    <div class="pub-stats">
+      <div>
+        <span class="pub-stat-num">9</span>
+        <span class="pub-stat-label">Published Pieces</span>
+      </div>
+      <div>
+        <span class="pub-stat-num">7</span>
+        <span class="pub-stat-label">Literary Journals</span>
+      </div>
+      <div>
+        <span class="pub-stat-num">2</span>
+        <span class="pub-stat-label">Genres</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter by:</span>
+    <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
+    <button class="filter-btn fiction" onclick="filterPubs('fiction', this)">Fiction</button>
+    <button class="filter-btn article" onclick="filterPubs('article', this)">Articles</button>
+  </div>
+
+  <!-- PUBLICATIONS GRID -->
+  <div class="pub-grid" id="pubGrid">
+
+    <!-- FEATURED: Fiction -->
+    <a href="https://barelysouthreview.com/where-not-to-have-a-miscarriage/" target="_blank" rel="noopener noreferrer" class="pub-card featured fiction" data-genre="fiction">
+      <div class="pub-card-body">
+        <span class="pub-genre-tag fiction">✦ Fiction · Featured</span>
+        <h2 class="pub-title">"Where Not to Have a Miscarriage"</h2>
+        <p class="pub-excerpt">A raw, intimate story about a young woman who experiences a miscarriage in the back of a taxi while trying to continue with her workday. The piece explores complicated grief, bodily trauma, emotional numbness, and the painful confusion of mourning something she was not sure she wanted.</p>
+      </div>
+      <div class="pub-card-footer">
+        <span class="pub-journal">Barely South Review</span>
+        <span class="pub-read-link">Read Fiction →</span>
+      </div>
+    </a>
+
+    <!-- Fiction -->
+    <a href="https://purplednail.com/2019/11/01/ill-always-know-who-you-are/" target="_blank" rel="noopener noreferrer" class="pub-card regular fiction" data-genre="fiction">
+      <div class="pub-card-body">
+        <span class="pub-genre-tag fiction">Fiction</span>
+        <h2 class="pub-title">"I'll Always Know Who You Are"</h2>
+        <p class="pub-excerpt">A grieving mother becomes obsessed with the possibility that her murdered daughter, Willa, has been reborn as another child. The story explores loss, motherhood, faith, guilt, and the desperate human need to believe that love can survive death.</p>
+      </div>
+      <div class="pub-card-footer">
+        <span class="pub-journal">Purple Nail</span>
+        <span class="pub-read-link">Read →</span>
+      </div>
+    </a>
+
+    <!-- Row 2 -->
+    <a href="https://www.sierranevadareview.com/kate-bockino-2024" target="_blank" rel="noopener noreferrer" class="pub-card half fiction" data-genre="fiction">
+      <div class="pub-card-body">
+        <span class="pub-genre-tag fiction">Fiction</span>
+        <h2 class="pub-title">"Family Dinners at Samba"</h2>
+        <p class="pub-excerpt">This story follows a young narrator during a tense family dinner at the restaurant where she works summers. What begins as a normal Friday outing becomes a painful portrait of parental drinking, public embarrassment, anxiety, and a child trying to survive her family's dysfunction.</p>
+      </div>
+      <div class="pub-card-footer">
+        <span class="pub-journal">Sierra Nevada Review</span>
+        <span class="pub-read-link">Read →</span>
+      </div>
+    </a>
+
+    <a href="https://rappahannockreview.com/issue-9-1/contents/fiction/katie-bockino/" target="_blank" rel="noopener noreferrer" class="pub-card half fiction" data-genre="fiction">
+      <div class="pub-card-body">
+        <span class="pub-genre-tag fiction">Fiction</span>
+        <h2 class="pub-title">"Instructions for Clearing"</h2>
+        <p class="pub-excerpt">This story follows Tammy, a teenager grieving her absent father's death while living with relatives in a town shaken by the murder of a girl named Mary. As the town cuts down the woods where Mary died, Tammy's grief, fear, and dreams of Mary become tied to the destruction of the forest.</p>
+      </div>
+      <div class="pub-card-footer">
+        <span class="pub-journal">Rappahannock Review</span>
+        <span class="pub-read-link">Read →</span>
+      </div>
+    </a>
+
+    <!-- Row 3 -->
+    <a href="https://www.gandydancer.org/archives/issue-3-1/kathryn-bockino/" target="_blank" rel="noopener noreferrer" class="pub-card regular fiction" data-genre="fiction">
+      <div class="pub-card-body">
+        <span class="pub-genre-tag fiction">Fiction</span>
+        <h2 class="pub-title">"The Most Feared Man in Italy"</h2>
+        <p class="pub-excerpt">Bockino investigates her great uncle, Arturo Bocchini, and tries to understand the man behind a feared historical reputation. The piece blends family history, personal reflection, and historical inquiry.</p>
+      </div>
+      <div class="pub-card-footer">
+        <span class="pub-journal">Gandy Dancer</span>
+        <span class="pub-read-link">Read →</span>
+      </div>
+    </a>
+
+    <a href="https://www.thesatirist.com/satires/letters-i-sent-to-my-fiction-workshop.html" target="_blank" rel="noopener noreferrer" class="pub-card regular fiction" data-genre="fiction">
+      <div class="pub-card-body">
+        <span class="pub-genre-tag fiction">Fiction</span>
+        <h2 class="pub-title">"Letters I Sent to My Fiction Workshop"</h2>
+        <p class="pub-excerpt">A satirical piece told through a series of workshop notes from a writer named Lucy, whose novel changes more and more after each round of feedback. The humor comes from how creative writing workshops can overwhelm writers with conflicting advice until the original story almost disappears.</p>
+      </div>
+      <div class="pub-card-footer">
+        <span class="pub-journal">The Satirist · August 2020</span>
+        <span class="pub-read-link">Read →</span>
+      </div>
+    </a>
+
+    <!-- Row 4 — Articles -->
+    <a href="https://www.thezodiacreview.com/fall-2025" target="_blank" rel="noopener noreferrer" class="pub-card regular fiction" data-genre="fiction">
+      <div class="pub-card-body">
+        <span class="pub-genre-tag fiction">Fiction</span>
+        <h2 class="pub-title">"Thank You So Much for Letting Me Be This Movie's Filler Love Interest!"</h2>
+        <p class="pub-excerpt">A sharp, witty piece told from the perspective of the overlooked "filler love interest" in a romantic movie — the woman who exists only to make the hero realize he loves someone else. A clever, funny, and quietly moving meditation on being the side character in someone else's love story.</p>
+      </div>
+      <div class="pub-card-footer">
+        <span class="pub-journal">The Zodiac Review · Fall 2025</span>
+        <span class="pub-read-link">Read →</span>
+      </div>
+    </a>
+
+    <a href="https://northforkrealestateshowcase.com/spirits-promise/" target="_blank" rel="noopener noreferrer" class="pub-card regular article" data-genre="article">
+      <div class="pub-card-body">
+        <span class="pub-genre-tag article">Article</span>
+        <h2 class="pub-title">"Spirits Promise"</h2>
+        <p class="pub-excerpt">This article profiles Spirit's Promise, a horse rescue sanctuary in Riverhead founded by Marisa Charles. It highlights the sanctuary's mission to rescue abused and abandoned horses while also using them for healing, education, and human connection.</p>
+      </div>
+      <div class="pub-card-footer">
+        <span class="pub-journal">North Fork Real Estate Showcase</span>
+        <span class="pub-read-link">Read →</span>
+      </div>
+    </a>
+
+    <a href="https://northforkrealestateshowcase.com/hallockvilles-lasting-contribution/" target="_blank" rel="noopener noreferrer" class="pub-card regular article" data-genre="article">
+      <div class="pub-card-body">
+        <span class="pub-genre-tag article">Article</span>
+        <h2 class="pub-title">"Hallockville's Lasting Contribution"</h2>
+        <p class="pub-excerpt">This article celebrates Hallockville Museum Farm and its role in preserving North Fork agricultural history. It highlights the Homestead's 250th anniversary, community programs, historic buildings, and the museum's importance as a living connection to Long Island's past.</p>
+      </div>
+      <div class="pub-card-footer">
+        <span class="pub-journal">North Fork Real Estate Showcase</span>
+        <span class="pub-read-link">Read →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background: var(--brown); padding: 1.8rem 3rem; text-align: center; border-top: 1px solid rgba(212,168,83,0.15);">
+    <p style="font-family:'Lora',serif; font-size:0.78rem; color:rgba(255,255,255,0.65); letter-spacing:0.06em;">
+      © 2026 Kathryn Bockino · All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    // ── SCROLL PROGRESS ──
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('scrollBar').style.width = pct + '%';
+    });
+
+    // ── FILTER ──
+    function filterPubs(genre, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.pub-card').forEach(card => {
+        if (genre === 'all' || card.dataset.genre === genre) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      // Re-layout featured on filter
+      const cards = document.querySelectorAll('.pub-card:not(.hidden)');
+      cards.forEach((card, i) => {
+        card.classList.remove('featured', 'regular', 'half');
+        if (i === 0) card.classList.add('featured');
+        else card.classList.add('regular');
+      });
+    }
+
+    // ── SCROLL FADE IN ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.pub-card').forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s, box-shadow 0.35s ease, border-color 0.35s ease`;
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>

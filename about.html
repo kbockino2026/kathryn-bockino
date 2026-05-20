@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Background & Experience | Kathryn Bockino</title>
+  <meta name="description" content="Academic background, teaching experience, editorial work, and skills of Kathryn Bockino — English Lecturer at BMCC, NYU MFA graduate, and published writer."/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c4674a'/><text y='72' x='50' text-anchor='middle' font-family='Georgia,serif' font-size='48' font-weight='bold' fill='white'>KB</text></svg>"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #fdf6ee;
+      --warm-white: #fffaf4;
+      --terracotta: #c4674a;
+      --brown: #5c3d2e;
+      --sage: #7a9e87;
+      --gold: #d4a853;
+      --text-soft: #7a6457;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-bar {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      z-index: 1000; width: 0%;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 250;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(253,246,238,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,168,83,0.15);
+      box-shadow: 0 2px 20px rgba(92,61,46,0.05);
+    }
+
+    .nav-logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--brown) 0%, var(--gold) 45%, var(--terracotta) 70%, var(--brown) 100%);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer-name 4s ease-in-out infinite;
+      letter-spacing: 0.03em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @keyframes shimmer-name {
+      0% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+
+    .nav-back {
+      display: flex; align-items: center; gap: 0.5rem;
+      text-decoration: none; color: var(--text-soft);
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--terracotta); }
+
+    /* ── HERO ── */
+    .about-hero {
+      padding: 10rem 4rem 5rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .about-eyebrow {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+
+    .eyebrow-line { width: 40px; height: 1.5px; background: var(--terracotta); }
+
+    .eyebrow-text {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .about-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700; line-height: 1.1;
+      color: var(--brown); margin-bottom: 1.2rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+
+    .about-hero h1 em { font-style: italic; color: var(--terracotta); }
+
+    .about-hero-desc {
+      font-family: 'Lora', serif;
+      font-size: 1rem; color: var(--text-soft);
+      line-height: 1.75; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.6s forwards;
+    }
+
+    /* Quick stats */
+    .hero-stats {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s ease 0.8s forwards;
+    }
+
+    .hero-stat {
+      text-align: center;
+      padding: 1rem 1.5rem;
+      background: var(--warm-white);
+      border-radius: 14px;
+      border: 1.5px solid rgba(196,103,74,0.15);
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 700;
+      color: var(--terracotta); display: block; line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.7rem; color: var(--text-soft);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-top: 0.3rem; display: block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 4rem;
+    }
+
+    .section-header {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(to right, rgba(196,103,74,0.3), transparent);
+    }
+
+    .section-header-label {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--terracotta); white-space: nowrap;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.8rem; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom,
+        var(--terracotta),
+        var(--gold) 40%,
+        var(--sage) 70%,
+        rgba(196,103,74,0.1));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1; transform: translateX(0);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2.55rem; top: 0.35rem;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 2.5px solid var(--cream);
+      flex-shrink: 0;
+    }
+
+    .timeline-dot.education { background: var(--terracotta); }
+    .timeline-dot.teaching { background: var(--gold); }
+    .timeline-dot.editorial { background: var(--sage); }
+    .timeline-dot.writing { background: var(--brown); }
+
+    .timeline-card {
+      background: var(--warm-white);
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      border: 1.5px solid rgba(196,103,74,0.12);
+      box-shadow: 0 2px 16px rgba(92,61,46,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 28px rgba(92,61,46,0.1);
+      border-color: rgba(196,103,74,0.3);
+    }
+
+    .timeline-meta {
+      display: flex; align-items: center;
+      flex-wrap: wrap; gap: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-period {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .timeline-type {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.2rem 0.7rem; border-radius: 50px;
+    }
+
+    .type-education { background: rgba(196,103,74,0.1); color: var(--terracotta); }
+    .type-teaching { background: rgba(212,168,83,0.12); color: #9a7010; }
+    .type-editorial { background: rgba(122,158,135,0.12); color: var(--sage); }
+    .type-writing { background: rgba(92,61,46,0.08); color: var(--brown); }
+
+    .timeline-org {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--brown); margin-bottom: 0.2rem;
+    }
+
+    .timeline-role {
+      font-family: 'Lora', serif;
+      font-size: 0.9rem; font-style: italic;
+      color: var(--terracotta); margin-bottom: 0.8rem;
+    }
+
+    .timeline-details {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.35rem;
+    }
+
+    .timeline-details li {
+      font-size: 0.85rem; color: var(--text-soft);
+      line-height: 1.5; display: flex; gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .timeline-details li::before {
+      content: '·';
+      color: var(--terracotta); flex-shrink: 0;
+      font-size: 1rem; margin-top: -0.05rem;
+    }
+
+    .timeline-honors {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .honor-tag {
+      font-size: 0.72rem; font-weight: 500;
+      padding: 0.25rem 0.8rem; border-radius: 50px;
+      background: rgba(196,103,74,0.08);
+      color: var(--text-soft);
+      border: 1px solid rgba(196,103,74,0.15);
+    }
+
+    /* ── SKILLS SECTION ── */
+    .skills-section {
+      background: var(--brown);
+      padding: 5rem 4rem;
+    }
+
+    .skills-inner {
+      max-width: 1100px; margin: 0 auto;
+    }
+
+    .skills-header {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .skills-header-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(to right, rgba(212,168,83,0.4), transparent);
+    }
+
+    .skills-header-label {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); white-space: nowrap;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .skill-group {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(212,168,83,0.15);
+      border-radius: 16px; padding: 1.5rem;
+    }
+
+    .skill-group-title {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+
+    .skill-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    .skill-tag {
+      font-size: 0.78rem; color: rgba(255,255,255,0.7);
+      padding: 0.3rem 0.8rem; border-radius: 50px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ── RESPONSIVE ── */
+    /* ── TABLET 768px–1024px ── */
+    @media (max-width: 1024px) {
+      .about-hero { padding: 9rem 3rem 4rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .section-wrapper { padding: 4rem 3rem; }
+      .skills-section { padding: 4rem 3rem; }
+    }
+
+    /* ── SMALL TABLET / LARGE MOBILE max 900px ── */
+    @media (max-width: 900px) {
+      .about-hero { padding: 8rem 2rem 3rem; }
+      .section-wrapper { padding: 3.5rem 1.5rem; }
+      .timeline { padding-left: 2rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .skills-section { padding: 3.5rem 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
+    }
+
+    /* ── MOBILE max 600px ── */
+    @media (max-width: 600px) {
+      .about-hero { padding-top: 7rem; padding-bottom: 2rem; }
+      .about-hero h1 { font-size: 2.4rem; }
+      .about-hero-desc { font-size: 0.9rem; }
+      .hero-stats { gap: 0.8rem; flex-direction: column; align-items: center; width: 100%; }
+      .hero-stat { padding: 0.8rem 1rem; width: 100%; max-width: 300px; text-align: center; }
+      .hero-stat-num { font-size: 1.5rem; }
+      .section-wrapper { padding: 2rem 1.5rem 3.5rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .timeline-card { padding: 1.4rem; }
+      .nav-logo { font-size: 1.5rem; }
+    }
+
+    /* ── SMALL PHONES max 400px ── */
+    @media (max-width: 400px) {
+      .about-hero h1 { font-size: 2rem; }
+      .nav-logo { font-size: 1.3rem; }
+      .hero-stats { flex-direction: column; align-items: center; gap: 0.6rem; width: 100%; }
+      .hero-stat { width: 100%; max-width: 280px; text-align: center; }
+      .timeline { padding-left: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-bar" id="scrollBar"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Kathryn Bockino</a>
+    <a href="index.html" class="nav-back">← Back</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="about-hero">
+    <div class="hero-left">
+      <div class="about-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Background & Experience</span>
+      </div>
+      <h1>Educator.<br/><em>Writer.</em><br/>Editor.</h1>
+      <p class="about-hero-desc">
+        A decade of teaching, writing, editing, and building — across universities, literary journals, and publishing houses in New York and beyond.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">10+</span>
+          <span class="hero-stat-label">Years Teaching</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">4</span>
+          <span class="hero-stat-label">Institutions</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">NYU</span>
+          <span class="hero-stat-label">MFA Graduate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION TIMELINE -->
+  <div class="section-wrapper">
+    <div class="section-header">
+      <span class="section-header-label">Education</span>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="timeline" id="eduTimeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot education"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">2016 – 2018</span>
+            <span class="timeline-type type-education">Graduate</span>
+          </div>
+          <div class="timeline-org">New York University</div>
+          <div class="timeline-role">Master of Fine Arts (MFA) — Creative Writing, Fiction</div>
+          <ul class="timeline-details">
+            <li>NYU Creative Writing Program, one of the most prestigious MFA programs in the United States</li>
+            <li>Assistant Managing Editor then Managing Editor of Washington Square Review</li>
+            <li>Taught as an Adjunct Graduate Instructor (2017)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot education"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">2012 – 2016</span>
+            <span class="timeline-type type-education">Undergraduate</span>
+          </div>
+          <div class="timeline-org">SUNY Geneseo</div>
+          <div class="timeline-role">BA — English/Creative Writing · Minor: Business Studies & Medieval Studies · Cum Laude</div>
+          <div class="timeline-honors">
+            <span class="honor-tag">Phi Eta Sigma National Honor Society</span>
+            <span class="honor-tag">Sigma Tau Delta — International English Honor Society</span>
+            <span class="honor-tag">Editor in Chief, MiNT Magazine</span>
+            <span class="honor-tag">Vice President, Phi Lambda Chi</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EXPERIENCE TIMELINE -->
+  <div class="section-wrapper" style="padding-top:0;">
+    <div class="section-header">
+      <span class="section-header-label">Experience</span>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="timeline" id="expTimeline">
+
+      <!-- BMCC Full-time -->
+      <div class="timeline-item">
+        <div class="timeline-dot teaching"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">Aug 2022 – Present</span>
+            <span class="timeline-type type-teaching">Teaching</span>
+          </div>
+          <div class="timeline-org">Borough of Manhattan Community College (BMCC)</div>
+          <div class="timeline-role">Faculty Lecturer, Full-time</div>
+          <ul class="timeline-details">
+            <li>English Composition</li>
+            <li>Introduction to Literature</li>
+            <li>Children's Literature</li>
+            <li>Introduction to Shakespeare</li>
+            <li>Creative Writing</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BMCC Adjunct -->
+      <div class="timeline-item">
+        <div class="timeline-dot teaching"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">Aug 2019 – Aug 2022</span>
+            <span class="timeline-type type-teaching">Teaching</span>
+          </div>
+          <div class="timeline-org">Borough of Manhattan Community College (BMCC)</div>
+          <div class="timeline-role">Adjunct Lecturer, Part-time</div>
+          <ul class="timeline-details">
+            <li>English Composition I</li>
+            <li>Introduction to Literature</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Gatekeeper Press -->
+      <div class="timeline-item">
+        <div class="timeline-dot editorial"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">Aug 2021 – Present</span>
+            <span class="timeline-type type-editorial">Editorial</span>
+          </div>
+          <div class="timeline-org">Gatekeeper Press</div>
+          <div class="timeline-role">Children's and Adult Developmental Manuscript Editor</div>
+          <ul class="timeline-details">
+            <li>Edited and proofread full-length manuscripts</li>
+            <li>Assisted authors with plot, character, dialogue, and structure</li>
+            <li>Performed developmental and structural edits</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Lehman College -->
+      <div class="timeline-item">
+        <div class="timeline-dot teaching"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">Aug 2020 – May 2022</span>
+            <span class="timeline-type type-teaching">Teaching</span>
+          </div>
+          <div class="timeline-org">Lehman College</div>
+          <div class="timeline-role">Adjunct Lecturer</div>
+          <ul class="timeline-details">
+            <li>English Composition I & II</li>
+            <li>Literature courses</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Old Westbury -->
+      <div class="timeline-item">
+        <div class="timeline-dot teaching"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">Aug 2020 – May 2022</span>
+            <span class="timeline-type type-teaching">Teaching</span>
+          </div>
+          <div class="timeline-org">SUNY College at Old Westbury</div>
+          <div class="timeline-role">Adjunct Lecturer</div>
+          <ul class="timeline-details">
+            <li>English Composition</li>
+            <li>Women's Honors Literature</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Washington Square Review -->
+      <div class="timeline-item">
+        <div class="timeline-dot editorial"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">Sep 2016 – May 2018</span>
+            <span class="timeline-type type-editorial">Editorial</span>
+          </div>
+          <div class="timeline-org">Washington Square Review — NYU</div>
+          <div class="timeline-role">Managing Editor (2017–2018) · Assistant Managing Editor (2016–2017)</div>
+          <ul class="timeline-details">
+            <li>Coordinated journal meetings and events</li>
+            <li>Maintained production schedules</li>
+            <li>Proofread and edited journal issues</li>
+            <li>Supervised staff operations</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidley Austin -->
+      <div class="timeline-item">
+        <div class="timeline-dot editorial"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">May 2018 – May 2019</span>
+            <span class="timeline-type type-editorial">Professional</span>
+          </div>
+          <div class="timeline-org">Sidley Austin LLP</div>
+          <div class="timeline-role">Marketing Assistant — New York City</div>
+        </div>
+      </div>
+
+      <!-- NYU Instructor -->
+      <div class="timeline-item">
+        <div class="timeline-dot teaching"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">2017</span>
+            <span class="timeline-type type-teaching">Teaching</span>
+          </div>
+          <div class="timeline-org">New York University</div>
+          <div class="timeline-role">Adjunct Graduate Instructor</div>
+          <ul class="timeline-details">
+            <li>Designed a custom syllabus focused on diverse writers and poets</li>
+            <li>Taught literary analysis through a writer's perspective</li>
+            <li>Integrated online discussions and handwritten journals into coursework</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Hamptons Real Estate -->
+      <div class="timeline-item">
+        <div class="timeline-dot writing"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">Jun 2015 – Sep 2016</span>
+            <span class="timeline-type type-writing">Writing</span>
+          </div>
+          <div class="timeline-org">Hamptons Real Estate Showcase</div>
+          <div class="timeline-role">Contributing Writer — Long Island, NY</div>
+          <ul class="timeline-details">
+            <li>Wrote 500–1,000 word feature articles on Long Island events</li>
+            <li>Conducted interviews with local business owners and real estate agents</li>
+            <li>Collaborated with editors, photographers, and writers</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SUNY Geneseo Tutor -->
+      <div class="timeline-item">
+        <div class="timeline-dot teaching"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">Sep 2015 – May 2016</span>
+            <span class="timeline-type type-teaching">Teaching</span>
+          </div>
+          <div class="timeline-org">SUNY Geneseo — Writing Learning Center</div>
+          <div class="timeline-role">Writing Tutor — Geneseo, NY</div>
+          <ul class="timeline-details">
+            <li>Assisted students including ESL learners with academic writing</li>
+            <li>Helped improve thesis statements and critical paper structure</li>
+            <li>Developed exercises to strengthen independent writing skills</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Portrait Magazine -->
+      <div class="timeline-item">
+        <div class="timeline-dot writing"></div>
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="timeline-period">2010 – 2012</span>
+            <span class="timeline-type type-writing">Writing</span>
+          </div>
+          <div class="timeline-org">Portrait Magazine</div>
+          <div class="timeline-role">Contributing Writer</div>
+          <ul class="timeline-details">
+            <li>Wrote and edited articles on television, books, trends, and celebrities</li>
+            <li>Sourced quotes and images for editorial stories</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="skills-section">
+    <div class="skills-inner">
+      <div class="skills-header">
+        <span class="skills-header-label">Skills & Expertise</span>
+        <div class="skills-header-line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">Writing & Creative</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Creative Writing</span>
+            <span class="skill-tag">Fiction Writing</span>
+            <span class="skill-tag">Literary Analysis</span>
+            <span class="skill-tag">Academic Writing</span>
+            <span class="skill-tag">Journalism</span>
+            <span class="skill-tag">Content Development</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Editorial</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Editing & Proofreading</span>
+            <span class="skill-tag">Developmental Editing</span>
+            <span class="skill-tag">Manuscript Editing</span>
+            <span class="skill-tag">Editorial Management</span>
+            <span class="skill-tag">Research & Interviewing</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Teaching & Facilitation</div>
+          <div class="skill-tags">
+            <span class="skill-tag">English Composition</span>
+            <span class="skill-tag">Curriculum Development</span>
+            <span class="skill-tag">Public Speaking</span>
+            <span class="skill-tag">Workshop Facilitation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background: var(--brown); padding: 1.8rem 3rem; text-align: center; border-top: 1px solid rgba(212,168,83,0.15);">
+    <p style="font-family:'Lora',serif; font-size:0.78rem; color:rgba(255,255,255,0.65); letter-spacing:0.06em;">
+      © 2026 Kathryn Bockino · All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    // Scroll progress
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('scrollBar').style.width = pct + '%';
+    });
+
+    // Timeline scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      observer.observe(item);
+    });
+  </script>
+</body>
+</html>
