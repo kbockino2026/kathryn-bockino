@@ -160,8 +160,23 @@
       background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--terracotta));
       background-size: 200% auto;
       z-index: 9999;
-      transition: width 0.1s linear;
+      transition: width 0.1s linear, opacity 0.2s ease;
       animation: shimmer-bar 2s linear infinite;
+    }
+
+    .progress-bar.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Hide scrollbar inside mobile menu */
+    .mobile-menu {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+    }
+
+    .mobile-menu::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
     }
 
     @keyframes shimmer-bar {
@@ -217,32 +232,26 @@
       background: rgba(253, 246, 238, 0.82);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 1px 0 rgba(212, 168, 83, 0.15), 0 2px 16px rgba(92, 61, 46, 0.04);
-      transition: background 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 1px 0 rgba(196, 103, 74, 0.12);
+      transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
       width: 100%;
       box-sizing: border-box;
-    }
-
-    nav::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 5%; right: 5%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(212,168,83,0.15), rgba(212,168,83,0.3), rgba(212,168,83,0.15), transparent);
-      opacity: 1;
-      transition: opacity 0.4s ease;
     }
 
     nav.scrolled {
       background: rgba(253, 246, 238, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 rgba(212, 168, 83, 0.3), 0 4px 30px rgba(92, 61, 46, 0.08);
+      box-shadow: 0 1px 0 rgba(196, 103, 74, 0.2), 0 4px 20px rgba(92, 61, 46, 0.06);
     }
 
-    nav.scrolled::after {
-      background: linear-gradient(to right, transparent, rgba(212,168,83,0), rgba(212,168,83,0.6), rgba(212,168,83,0), transparent);
-      opacity: 1;
+    /* Solid background when mobile menu is open */
+    nav.menu-open,
+    nav.menu-open.scrolled {
+      background: #fdf6ee;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: 0 1px 0 rgba(196, 103, 74, 0.15);
     }
 
     /* Decorative side ornaments on nav */
@@ -335,6 +344,12 @@
     .nav-links a:hover::after { width: 100%; }
     .nav-links a.active { color: var(--terracotta); }
     .nav-links a.active::after { width: 100%; }
+
+    /* Prevent background scroll when mobile menu is open */
+    body.menu-locked {
+      overflow: hidden;
+      touch-action: none;
+    }
 
     /* ── HAMBURGER ── */
     /* ── HAMBURGER ── */
@@ -2465,6 +2480,7 @@
     // Scroll progress bar
     const progressBar = document.getElementById('progressBar');
     window.addEventListener('scroll', () => {
+      if (document.body.classList.contains('menu-locked')) return;
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
@@ -2476,30 +2492,44 @@
       const menu = document.getElementById('mobileMenu');
       const label = document.getElementById('hamburgerLabel');
       const backToTop = document.getElementById('backToTop');
+      const navEl = document.querySelector('nav');
       hamburger.classList.toggle('open');
       menu.classList.toggle('open');
       label.textContent = hamburger.classList.contains('open') ? 'Close' : 'Menu';
       const isOpen = menu.classList.contains('open');
-      // Lock body scroll — works on iOS too
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-      document.body.style.position = isOpen ? 'fixed' : '';
-      document.body.style.width = isOpen ? '100%' : '';
-      // Hide back-to-top button when menu is open
-      if (backToTop) backToTop.style.display = isOpen ? 'none' : '';
+      navEl.classList.toggle('menu-open', isOpen);
+
+      if (isOpen) {
+        // Save exact scroll position
+        document.body.dataset.scrollY = window.scrollY;
+        document.documentElement.style.scrollBehavior = 'auto';
+        document.body.classList.add('menu-locked');
+        progressBar.classList.add('hidden');
+        if (backToTop) backToTop.style.display = 'none';
+      } else {
+        // Restore exact scroll position instantly
+        const scrollY = parseInt(document.body.dataset.scrollY || '0');
+        document.body.classList.remove('menu-locked');
+        window.scrollTo({ top: scrollY, behavior: 'instant' });
+        document.documentElement.style.scrollBehavior = '';
+        progressBar.classList.remove('hidden');
+        if (backToTop) backToTop.style.display = '';
+      }
     }
 
     function closeMenu() {
       const backToTop = document.getElementById('backToTop');
+      const navEl = document.querySelector('nav');
       document.getElementById('hamburger').classList.remove('open');
       document.getElementById('mobileMenu').classList.remove('open');
       document.getElementById('hamburgerLabel').textContent = 'Menu';
-      // Restore scroll
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      // Restore back-to-top
+      navEl.classList.remove('menu-open');
+      const scrollY = parseInt(document.body.dataset.scrollY || '0');
+      document.body.classList.remove('menu-locked');
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
+      document.documentElement.style.scrollBehavior = '';
+      progressBar.classList.remove('hidden');
       if (backToTop) backToTop.style.display = '';
-      // Remove focus from any menu link to prevent stuck active state
       if (document.activeElement) document.activeElement.blur();
     }
 
