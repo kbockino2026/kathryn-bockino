@@ -109,6 +109,17 @@
       overflow-x: hidden;
     }
 
+    html.menu-open {
+      overflow: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    html.menu-open::-webkit-scrollbar {
+      display: none;
+      width: 0;
+    }
+
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--cream);
@@ -167,16 +178,6 @@
     .progress-bar.hidden {
       opacity: 0;
       pointer-events: none;
-    }
-
-    /* Hide scrollbar inside mobile menu */
-    .mobile-menu {
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE/Edge */
-    }
-
-    .mobile-menu::-webkit-scrollbar {
-      display: none; /* Chrome/Safari */
     }
 
     @keyframes shimmer-bar {
@@ -349,6 +350,13 @@
     body.menu-locked {
       overflow: hidden;
       touch-action: none;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    body.menu-locked::-webkit-scrollbar {
+      display: none;
+      width: 0;
     }
 
     /* ── HAMBURGER ── */
@@ -444,13 +452,29 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s;
-      overflow-y: auto;
+      overflow: hidden;
       padding: 1rem 0;
+      /* Hide scrollbar — all browsers */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-menu::-webkit-scrollbar {
+      display: none;
+      width: 0;
     }
 
     .mobile-menu.open {
       opacity: 1;
       pointer-events: all;
+      overflow: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-menu.open::-webkit-scrollbar {
+      display: none;
+      width: 0;
     }
 
     .mobile-menu a {
@@ -2500,16 +2524,16 @@
       navEl.classList.toggle('menu-open', isOpen);
 
       if (isOpen) {
-        // Save exact scroll position
         document.body.dataset.scrollY = window.scrollY;
         document.documentElement.style.scrollBehavior = 'auto';
         document.body.classList.add('menu-locked');
+        document.documentElement.classList.add('menu-open');
         progressBar.classList.add('hidden');
         if (backToTop) backToTop.style.display = 'none';
       } else {
-        // Restore exact scroll position instantly
         const scrollY = parseInt(document.body.dataset.scrollY || '0');
         document.body.classList.remove('menu-locked');
+        document.documentElement.classList.remove('menu-open');
         window.scrollTo({ top: scrollY, behavior: 'instant' });
         document.documentElement.style.scrollBehavior = '';
         progressBar.classList.remove('hidden');
@@ -2526,6 +2550,7 @@
       navEl.classList.remove('menu-open');
       const scrollY = parseInt(document.body.dataset.scrollY || '0');
       document.body.classList.remove('menu-locked');
+      document.documentElement.classList.remove('menu-open');
       window.scrollTo({ top: scrollY, behavior: 'instant' });
       document.documentElement.style.scrollBehavior = '';
       progressBar.classList.remove('hidden');
