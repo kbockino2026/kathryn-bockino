@@ -85,12 +85,12 @@
   </script>
 
   <!-- ── FAVICON ── -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet"/>
-  <style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+  <style>
     :root {
       --cream: #fdf6ee;
       --warm-white: #fffaf4;
@@ -189,11 +189,6 @@
     }
 
     /* ── HERO TEXT ANIMATION ── */
-    .hero-eyebrow {
-      opacity: 0;
-      animation: fadeUp 0.4s ease 0.1s forwards;
-    }
-
     .hero-line-1 {
       opacity: 0;
       animation: fadeUp 0.4s ease 0.3s forwards;
@@ -642,6 +637,8 @@
       text-transform: uppercase;
       color: var(--terracotta);
       margin-bottom: 0.6rem;
+      opacity: 0;
+      animation: fadeUp 0.4s ease 0.1s forwards;
     }
 
     .hero-eyebrow::before {
@@ -684,21 +681,6 @@
 
     .hero-buttons {
       display: flex; gap: 1rem; flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      padding: 0.85rem 2rem;
-      background: var(--terracotta);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-      display: inline-block;
     }
 
     .btn-primary:hover {
@@ -836,13 +818,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--terracotta);
     }
 
     .stat-label {
@@ -1516,19 +1491,6 @@
     .review-banner-text strong {
       font-style: normal;
       color: var(--gold);
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% {
-        box-shadow: 0 8px 24px rgba(196, 103, 74, 0.3);
-      }
-      50% {
-        box-shadow: 0 8px 40px rgba(212, 168, 83, 0.9), 0 0 0 10px rgba(212, 168, 83, 0.2);
-      }
-    }
-
-    .rmp-btn {
-      animation: pulse-glow 1.2s ease-in-out infinite;
     }
 
     /* ── SCROLL FADE IN ── */
